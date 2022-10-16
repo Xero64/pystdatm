@@ -1,7 +1,9 @@
-#%% Import Dependencies
+#%%
+# Import Dependencies
 from pystdatm import density, pressure
 
-#%% Sample Code
+#%%
+# Sample Code
 alt = 1000.0 # metres above sea level
 
 rho = density(alt)
