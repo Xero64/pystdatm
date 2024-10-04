@@ -1,6 +1,6 @@
 #%%
 # Import Dependencies
-from pystdatm import density, pressure, viscosity, speed_of_sound, temperature
+from pystdatm import density, pressure, speed_of_sound, temperature, viscosity
 
 #%%
 # Sample Code
