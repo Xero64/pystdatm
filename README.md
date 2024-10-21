@@ -2,9 +2,9 @@
 
 ## Python Package for Standard Atmosphere
 
-The set of functions follow International Standard Atmosphere model.
+The set of functions that follow International Standard Atmosphere model.
 
-*Note*: Currently only Troposphere supported and SI units.
+*Note*: Only SI units are supported.
 
 Sample Code:
 ``` python
