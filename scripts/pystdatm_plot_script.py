@@ -1,8 +1,9 @@
 #%%
 # Import Dependencies
-from pystdatm import density, pressure, speed_of_sound, temperature, viscosity
-from numpy import linspace
 from matplotlib.pyplot import figure
+from numpy import linspace
+
+from pystdatm import density, pressure, speed_of_sound, temperature, viscosity
 
 #%%
 # ISA Properties at Altitude

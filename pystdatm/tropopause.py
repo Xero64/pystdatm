@@ -3,9 +3,9 @@ from typing import TYPE_CHECKING
 from numpy import exp, full, shape
 
 from .constants import G_0, R
-from .troposphere import (density_troposphere as _density_before,
-                          pressure_troposphere as _pressure_before,
-                          temperature_troposphere as _temperature_before)
+from .troposphere import density_troposphere as _density_before
+from .troposphere import pressure_troposphere as _pressure_before
+from .troposphere import temperature_troposphere as _temperature_before
 
 if TYPE_CHECKING:
     from numpy.typing import NDArray
