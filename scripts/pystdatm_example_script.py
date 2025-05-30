@@ -12,16 +12,23 @@ altz = geometric_altitude(alt)
 print(f'Geometric Altitude = {altz:.0f} m\n')
 
 temp = temperature(alt)
-print(f'Temperature = {temp:.2f} K\n')
+print(f'Air Temperature = {temp:.2f} K\n')
 
 pres = pressure(alt)
-print(f'Pressure = {pres:.6g} Pa\n')
+print(f'Air Pressure = {pres:.6g} Pa\n')
 
-rho_trop = density(alt)
-print(f'rho_trop = {rho_trop:.4f} kg/m**3\n')
+rho = density(alt)
+print(f'Air Density = {rho:.4f} kg/m**3\n')
 
-mu_trop = viscosity(temp)
-print(f'mu_trop = {mu_trop:.5g} Pa.s\n')
+mu = viscosity(temp)
+print(f'Air Viscosity = {mu:.5g} Pa.s\n')
 
-a_trop = speed_of_sound(temp)
-print(f'a_trop = {a_trop:.1f} m/s\n')
+a = speed_of_sound(temp)
+print(f'Speed of Sound = {a:.1f} m/s\n')
+
+#%%
+# Example of ISA Properties at Altitude with Temperature Deviation
+deviation = 10.0 # K
+
+rho_dev = density(alt, deviation=deviation)
+print(f'rho_dev = {rho_dev:.4f} kg/m**3\n')

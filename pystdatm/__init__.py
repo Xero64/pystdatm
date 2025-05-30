@@ -113,25 +113,41 @@ def pressure(altitude: 'NDArray') -> 'NDArray':
     pres[chk_6] = pressure_mesosphere_6(alt_6)
     return pres
 
-def density(altitude: 'NDArray') -> 'NDArray':
+def density(altitude: 'NDArray', deviation: float = 0.0) -> 'NDArray':
     """
     This function returns the density for a given
     geopotential altitude.
     """
-    altitude = asarray(altitude)
-    chks = check_layer(altitude)
-    chk_0, chk_1, chk_2, chk_3, chk_4, chk_5, chk_6 = chks
-    alts = filter_layer(altitude, chks)
-    alt_0, alt_1, alt_2, alt_3, alt_4, alt_5, alt_6 = alts
-    dens = full(altitude.shape, float('nan'))
-    dens[chk_0] = density_troposphere(alt_0)
-    dens[chk_1] = density_tropopause(alt_1)
-    dens[chk_2] = density_stratosphere_2(alt_2)
-    dens[chk_3] = density_stratosphere_3(alt_3)
-    dens[chk_4] = density_stratopause(alt_4)
-    dens[chk_5] = density_mesosphere_5(alt_5)
-    dens[chk_6] = density_mesosphere_6(alt_6)
+    if deviation == 0.0:
+        altitude = asarray(altitude)
+        chks = check_layer(altitude)
+        chk_0, chk_1, chk_2, chk_3, chk_4, chk_5, chk_6 = chks
+        alts = filter_layer(altitude, chks)
+        alt_0, alt_1, alt_2, alt_3, alt_4, alt_5, alt_6 = alts
+        dens = full(altitude.shape, float('nan'))
+        dens[chk_0] = density_troposphere(alt_0)
+        dens[chk_1] = density_tropopause(alt_1)
+        dens[chk_2] = density_stratosphere_2(alt_2)
+        dens[chk_3] = density_stratosphere_3(alt_3)
+        dens[chk_4] = density_stratopause(alt_4)
+        dens[chk_5] = density_mesosphere_5(alt_5)
+        dens[chk_6] = density_mesosphere_6(alt_6)
+    else:
+        dens = density_deviation(altitude, deviation)
     return dens
+
+def density_deviation(altitude: 'NDArray', deviation: float) -> 'NDArray':
+    """
+    This function returns the density for a given
+    geopotential altitude and temperature deviation.
+    """
+    altitude = asarray(altitude)
+    temp = temperature(altitude) + deviation
+    pres = pressure(altitude)
+    # Calculate the density using the ideal gas law
+    # rho = p/(R*T)
+    rho = pres/(R*temp)
+    return rho
 
 def density_ratio(altitude: 'NDArray') -> 'NDArray':
     """
