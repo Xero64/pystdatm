@@ -31,4 +31,4 @@ print(f'Speed of Sound = {a:.1f} m/s\n')
 deviation = 10.0 # K
 
 rho_dev = density(alt, deviation=deviation)
-print(f'rho_dev = {rho_dev:.4f} kg/m**3\n')
+print(f'Density ISA+{deviation:.0f} = {rho_dev:.4f} kg/m**3\n')
