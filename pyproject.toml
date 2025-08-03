@@ -14,7 +14,7 @@ classifiers = [
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 dependencies = [
-    "numpy"
+    "numpy>=2.2.6",
 ]
 
 [project.urls]
