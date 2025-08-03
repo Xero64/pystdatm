@@ -13,6 +13,9 @@ classifiers = [
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "numpy"
+]
 
 [project.urls]
 Homepage = "https://github.com/Xero64/pystdatm"
