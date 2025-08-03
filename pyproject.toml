@@ -1,6 +1,6 @@
 [project]
 name = "pystdatm"
-version = "0.2.0"
+version = "0.2.1"
 authors = [
   { name="Xero64", email="xero64@gmail.com" },
 ]
@@ -13,8 +13,6 @@ classifiers = [
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
-dependencies = [
-]
 
 [project.urls]
 Homepage = "https://github.com/Xero64/pystdatm"
