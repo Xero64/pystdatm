@@ -193,7 +193,10 @@ def equivalent_airspeed(altitude: 'NDArray', vtas: 'NDArray') -> 'NDArray':
     input altitude and true airspeed.
     """
     altitude = asarray(altitude)
-    return sqrt(density_ratio(altitude)*vtas**2)
+    sigma = density_ratio(altitude)
+    vtas = asarray(vtas)
+    veas = vtas*sqrt(sigma)
+    return veas
 
 def true_airspeed(altitude: 'NDArray', veas: 'NDArray') -> 'NDArray':
     """
@@ -201,4 +204,7 @@ def true_airspeed(altitude: 'NDArray', veas: 'NDArray') -> 'NDArray':
     input altitude and equivalent airspeed.
     """
     altitude = asarray(altitude)
-    return sqrt(veas**2/density_ratio(altitude))
+    sigma = density_ratio(altitude)
+    veas = asarray(veas)
+    vtas = veas/sqrt(sigma)
+    return vtas
