@@ -20,10 +20,10 @@ print(f'Air Pressure = {pres:.6g} Pa\n')
 rho = density(alt)
 print(f'Air Density = {rho:.4f} kg/m**3\n')
 
-mu = viscosity(temp)
+mu = viscosity(alt)
 print(f'Air Viscosity = {mu:.5g} Pa.s\n')
 
-a = speed_of_sound(temp)
+a = speed_of_sound(alt)
 print(f'Speed of Sound = {a:.1f} m/s\n')
 
 #%%
