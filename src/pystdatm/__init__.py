@@ -6,7 +6,7 @@ at different altitudes.
 
 from typing import TYPE_CHECKING
 
-from numpy import asarray, full, logical_and, sqrt
+from numpy import asarray, full, logical_and, sqrt, where
 
 from .constants import (BETA_S, GAMMA, H_0, H_1, H_2, H_3, H_4, H_5, H_6, H_7,
                         R_0, RHO_0, R, S)
@@ -143,6 +143,7 @@ def density_deviation(altitude: 'NDArray', deviation: float) -> 'NDArray':
     """
     altitude = asarray(altitude)
     temp = temperature(altitude) + deviation
+    temp = where(temp > 0.0, temp, float('nan'))
     pres = pressure(altitude)
     # Calculate the density using the ideal gas law
     # rho = p/(R*T)
